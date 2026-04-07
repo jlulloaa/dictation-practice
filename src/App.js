@@ -1,8 +1,10 @@
 import React, { useState, useCallback, useRef } from "react";
 
 const DEFAULT_WORDS = [
-  "apple", "banana", "cherry", "dolphin", "elephant",
-  "forest", "guitar", "harmony", "island", "jungle"
+  "Hill", "Stone", "Desert","Land",
+  "Wood","Stream","Ocean","Fire",
+  "Cave","Dinosaur","Butterflies","Beetle",
+  "Eagle","Camels","Tortoise","Swan","Octopus"
 ];
 
 function playFanfare() {
@@ -38,12 +40,26 @@ function shuffle(arr) {
   return a;
 }
 
+let speakTimer = null;
+function getBritishVoice() {
+  const voices = window.speechSynthesis.getVoices();
+  return (
+    voices.find(v => v.lang === "en-GB") ||
+    voices.find(v => v.lang.startsWith("en")) ||
+    null
+  );
+}
+
 function speak(word) {
   window.speechSynthesis.cancel();
-  setTimeout( () => {
+  clearTimeout(speakTimer);
+  speakTimer = setTimeout(() => {
     const utter = new SpeechSynthesisUtterance(word);
+    utter.lang  = "en-GB";
     utter.rate  = 0.85;
     utter.pitch = 1;
+    const voice = getBritishVoice();
+    if (voice) utter.voice = voice;
     window.speechSynthesis.speak(utter);
   }, 150);
 }
@@ -251,7 +267,7 @@ export default function App() {
       </div>
 
       <footer className="text-center text-muted py-3 small border-top">
-        Dictation App · Powered by Web Speech API
+        Dictation App · Powered by Web Speech API · &copy; {new Date().getFullYear()} Jose L. Ulloa
       </footer>
     </div>
   );
