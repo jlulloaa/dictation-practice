@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/dictation-practice/static/css/main.e6c13ad2.css",
+    "main.js": "/dictation-practice/static/js/main.6341da3e.js",
+    "static/js/453.ca288ea2.chunk.js": "/dictation-practice/static/js/453.ca288ea2.chunk.js",
+    "index.html": "/dictation-practice/index.html",
+    "main.e6c13ad2.css.map": "/dictation-practice/static/css/main.e6c13ad2.css.map",
+    "main.6341da3e.js.map": "/dictation-practice/static/js/main.6341da3e.js.map",
+    "453.ca288ea2.chunk.js.map": "/dictation-practice/static/js/453.ca288ea2.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e6c13ad2.css",
+    "static/js/main.6341da3e.js"
+  ]
+}
