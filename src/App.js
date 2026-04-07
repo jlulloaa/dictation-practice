@@ -59,7 +59,7 @@ function speak(word) {
     utter.rate  = 0.85;
     utter.pitch = 1;
     const voice = getBritishVoice();
-    if (voice) utter.voice = voice;
+    // if (voice) utter.voice = voice;
     window.speechSynthesis.speak(utter);
   }, 150);
 }
