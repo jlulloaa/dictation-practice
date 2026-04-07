@@ -133,7 +133,7 @@ export default function App() {
       <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
         <div className="container">
           <span className="navbar-brand fw-bold fs-4">🚀 Dictation App</span>
-          <span className="badge bg-light text-primary fs-6">Spacelab</span>
+          {/* <span className="badge bg-light text-primary fs-6">Spacelab</span> */}
         </div>
       </nav>
 
@@ -144,11 +144,13 @@ export default function App() {
             {/* Word Input Card */}
             <div className="card shadow-sm mb-4">
               <div className="card-header bg-primary text-white">
-                <h5 className="mb-0">📝 Word List</h5>
+                {/* <h5 className="mb-0">📝 Word List</h5> */}
+                <h5 className="mb-0">📝 Lista de Palabras</h5>
               </div>
               <div className="card-body">
                 <label className="form-label text-muted small">
-                  Enter words separated by commas or newlines
+                  {/* Enter words separated by commas or newlines */}
+                  Ingrese cada palabra, separada por comas o presione ENTER
                 </label>
                 <textarea
                   className="form-control"
@@ -160,7 +162,8 @@ export default function App() {
                   style={{ fontFamily: "monospace", fontSize: "0.9rem" }}
                 />
                 <div className="mt-2 text-muted small">
-                  {parseWords(wordInput).length} word(s) detected
+                  {/* {parseWords(wordInput).length} word(s) detected */}
+                  {parseWords(wordInput).length} palabra(s) detectada(s)
                 </div>
               </div>
             </div>
@@ -172,7 +175,8 @@ export default function App() {
                   <div>
                     <div className="display-1 mb-3" style={{ opacity: 0.2 }}>🔤</div>
                     <p className="text-muted">
-                      Press <strong>Start</strong> to begin the dictation
+                      {/* Press <strong>Start</strong> to begin the dictation */}
+                      Presione <strong>INICIO</strong> para comenzar el dictado
                     </p>
                   </div>
                 )}
@@ -200,7 +204,8 @@ export default function App() {
                       className="btn btn-sm btn-outline-secondary"
                       onClick={() => speak(currentWord)}
                     >
-                      🔊 Repeat word
+                      {/* 🔊 Repeat word */}
+                      🔊 Repetir palabra
                     </button>
                   </div>
                 )}
@@ -209,7 +214,8 @@ export default function App() {
                   <div>
                     <div className="display-1 mb-2">🎉</div>
                     <h2 className="fw-bold text-success mb-2">Success!</h2>
-                    <p className="text-muted">All words completed! Restarting in a moment…</p>
+                    {/* <p className="text-muted">All words completed! Restarting in a moment…</p> */}
+                    <p className="text-muted">Todas las palabras revisadas. Reiniciando en un instante…</p>
                   </div>
                 )}
               </div>
@@ -222,20 +228,23 @@ export default function App() {
                 onClick={handleStart}
                 disabled={phase === "running"}
               >
-                ▶ Start
+                {/* ▶ Start */}
+                ▶ Inicio
               </button>
               <button
                 className="btn btn-success btn-lg px-4"
                 onClick={handleNext}
                 disabled={phase !== "running"}
               >
-                ⏭ Next
+                {/* ⏭ Next */}
+                ⏭ Siguiente
               </button>
               <button
                 className="btn btn-danger btn-lg px-4"
                 onClick={handleReset}
               >
-                ↺ Reset
+                {/* ↺ Reset */}
+                ↺ Reiniciar
               </button>
             </div>
 
@@ -244,7 +253,8 @@ export default function App() {
               <div className="mt-4">
                 <div className="card border-0 bg-light">
                   <div className="card-body">
-                    <p className="text-muted small mb-2 fw-bold">REMAINING WORDS (hidden)</p>
+                    {/* <p className="text-muted small mb-2 fw-bold">REMAINING WORDS (hidden)</p> */}
+                    <p className="text-muted small mb-2 fw-bold">PALABRAS FALTANTES: (ocultas)</p>
                     <div className="d-flex flex-wrap gap-2 mb-1">
                       {queue.map((w, i) => (
                         <span
@@ -256,7 +266,8 @@ export default function App() {
                         </span>
                       ))}
                     </div>
-                    <small className="text-muted">{queue.length} word(s) remaining</small>
+                    {/* <small className="text-muted">{queue.length} word(s) remaining</small> */}
+                    <small className="text-muted">{queue.length} palabra(s) faltantes</small>
                   </div>
                 </div>
               </div>
