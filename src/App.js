@@ -41,6 +41,8 @@ function shuffle(arr) {
 }
 
 let speakTimer = null;
+let keepAliveTimer = null;
+
 function getBritishVoice() {
   const voices = window.speechSynthesis.getVoices();
   return (
@@ -48,6 +50,23 @@ function getBritishVoice() {
     voices.find(v => v.lang.startsWith("en")) ||
     null
   );
+}
+
+// Chrome on desktop pauses speech synthesis after ~15s.
+// Calling pause()+resume() on an interval prevents this.
+function startKeepAlive() {
+  stopKeepAlive();
+  keepAliveTimer = setInterval(() => {
+    if (window.speechSynthesis.speaking || window.speechSynthesis.pending) {
+      window.speechSynthesis.pause();
+      window.speechSynthesis.resume();
+    }
+  }, 5000);
+}
+
+function stopKeepAlive() {
+  clearInterval(keepAliveTimer);
+  keepAliveTimer = null;
 }
 
 function speak(word) {
@@ -60,6 +79,9 @@ function speak(word) {
     utter.pitch = 1;
     const voice = getBritishVoice();
     // if (voice) utter.voice = voice;
+    utter.onstart = () => startKeepAlive();
+    utter.onend   = () => stopKeepAlive();
+    utter.onerror = () => stopKeepAlive();
     window.speechSynthesis.speak(utter);
   }, 150);
 }
