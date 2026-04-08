@@ -267,7 +267,7 @@ export default function App() {
                       ))}
                     </div>
                     {/* <small className="text-muted">{queue.length} word(s) remaining</small> */}
-                    <small className="text-muted">{queue.length} palabra(s) faltantes</small>
+                    <small className="text-muted">{queue.length} palabra(s) faltante(s)</small>
                   </div>
                 </div>
               </div>
