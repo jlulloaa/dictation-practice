@@ -1,10 +1,16 @@
 import React, { useState, useCallback, useRef } from "react";
 
 const DEFAULT_WORDS = [
-  "Hill", "Stone", "Desert","Land",
-  "Wood","Stream","Ocean","Fire",
-  "Cave","Dinosaur","Butterflies","Beetle",
-  "Eagle","Camels","Tortoise","Swan","Octopus"
+  // "Hill", "Stone", "Desert","Land",
+  // "Wood","Stream","Ocean","Fire",
+  // "Cave","Dinosaur","Butterflies","Beetle",
+  // "Eagle","Camels","Tortoise","Swan","Octopus"
+  "", 
+  "", 
+  "", 
+  "", 
+  "", 
+  ""
 ];
 
 function playFanfare() {
